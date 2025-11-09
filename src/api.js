@@ -1,7 +1,5 @@
-import dotenv from 'dotenv'
-dotenv.config()
-// const BASE = 'http://127.0.0.1:8080' // use Vite proxy for /api
-const BASE = process.env.VITE_API_BASE || 'http://127.0.0.1:8080' // use Vite proxy for /api
+// Vite exposes env variables via import.meta.env
+const BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:8080'
 
 export async function fetchNotes() {
   const res = await fetch(`${BASE}/api/notes`)
